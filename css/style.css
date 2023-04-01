@@ -1,0 +1,198 @@
+:root {
+    --not-allowed: #c87b7b;
+    --red-900 : #ac1b1b;
+
+    --orange-400: #f9703e;
+    --orange-500: #f35627;
+
+    --grey-050: #aeccfa;
+    --grey-100: #c2d8f5;
+    --grey-200: #88a3be;
+    --grey-300: #afa5a5;
+    --grey-500: #516479;
+    --grey-800: #353131;
+
+    --black: #000;
+    --white: #fff;
+}
+
+/* Calculator body*/
+html {
+    font-size: 150%;
+    font-weight: 300;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    line-height: 1.4
+}
+
+body {
+    display: flex;
+    background: var(--black);
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+}
+
+
+/* Calculator */
+#CalculatorBody {
+    overflow: hidden
+}
+
+#CalculatorDisplay {
+    background-color: var(--black);
+    color: var(--grey-050);
+    width: 18rem;
+    padding: 1.25rem 1rem;
+    text-align: right;
+    font-size: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+#CalculatorHistory {
+    width: 18rem;
+    color:white;
+    font-weight: bold;
+    text-align: right;
+    padding: 0 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+#CalculatorKeys {
+    background: var(--black);
+    display: grid;
+    padding: 1rem;
+    gap: 1rem;
+    grid-template-columns: repeat(4, auto);
+    grid-template-areas:
+        ". . . delete"
+        "seven eight nine plus"
+        "four five six plus"
+        "one two three equal"
+        "zero decimal clear equal"
+}
+
+#CalculatorKeys button {
+    font-size: 1.4em;
+    font-weight: bold;
+    border: 0;
+    border-radius: 2.5rem;
+    padding: 0.5em 0.85em;
+    line-height: 1.4241
+}
+
+[data-key="1"] {
+    grid-area: one
+}
+
+[data-key="2"] {
+    grid-area: two
+}
+
+[data-key="3"] {
+    grid-area: three
+}
+
+[data-key="4"] {
+    grid-area: four
+}
+
+[data-key="5"] {
+    grid-area: five
+}
+
+[data-key="6"] {
+    grid-area: six
+}
+
+[data-key="7"] {
+    grid-area: seven
+}
+
+[data-key="8"] {
+    grid-area: eight
+}
+
+[data-key="9"] {
+    grid-area: nine
+}
+
+[data-key="0"] {
+    grid-area: zero
+}
+.decimal {
+    grid-area: decimal
+}
+
+.clear {
+    grid-area: clear
+}
+
+[data-key="plus"] {
+    grid-area: plus
+}
+
+[data-key="delete"] {
+    grid-area: delete
+}
+
+[data-key="equal"] {
+    grid-area: equal;
+    color: var(--white);
+    background-color: var(--orange-400)
+}
+
+[data-type="operator"] {
+    color: var(--white);
+    background-color: var(--orange-400)
+}
+
+[data-type="number"]
+{
+    color: var(--white);
+    background: var(--grey-800)
+}
+
+[data-type="operator"]:active,
+[data-type="number"]:active
+{
+    color: var(--orange-400);
+    background-color: var(--white);
+}
+
+[data-type="clear"] {
+    color: var(--white);
+    background: var(--grey-300)
+}
+
+[data-type="clear"]:active {
+    color: var(--grey-300);
+    background: var(--white)
+}
+
+[data-key="equal"]:active {
+    color: var(--orange-400);
+    background-color: var(--white);
+}
+
+[data-state="selected"] {
+    color: var(--orange-400);
+    background-color: var(--white);
+}
+
+[data-type="delete"] {
+    color: var(--white);
+    background: var(--red-900)
+}
+
+[data-type="delete"]:active {
+    color: var(--red-900);
+    background: var(--white)
+}
+
+.disabled {
+    pointer-events: none;
+    user-select: none;
+    background: var(--not-allowed)
+}
